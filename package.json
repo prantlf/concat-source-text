@@ -1,0 +1,87 @@
+{
+  "name": "concat-source-text",
+  "version": "1.0.0",
+  "description": "Concatenates text source files and generates a source map for the text output.",
+  "author": {
+    "name": "Ferdinand Prantl",
+    "email": "prantlf@gmail.com",
+    "url": "http://prantl.tk"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/concat-source-text/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/prantlf/concat-source-text#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prantlf/concat-source-text.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/concat-source-text/issues"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "lint": "eslint *.js",
+    "fix": "eslint *.js --fix",
+    "check": "tehanu test",
+    "cover": "c8 tehanu test",
+    "test": "eslint *.js && c8 tehanu test"
+  },
+  "c8": {
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
+  },
+  "dependencies": {
+    "@prantlf/convert-source-map": "^2.0.0",
+    "source-map": "~0.6.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "c8": "^7.11.2",
+    "eslint": "^8.14.0",
+    "tehanu": "^0.2.2",
+    "tehanu-repo-coco": "^0.0.2",
+    "tehanu-teru": "^0.2.2"
+  },
+  "keywords": [
+    "concatenate",
+    "concat",
+    "source",
+    "text",
+    "source-map"
+  ]
+}
