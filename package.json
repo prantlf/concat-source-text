@@ -25,18 +25,18 @@
   "engines": {
     "node": ">=12"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "index.js",
-    "index.d.ts"
+    "lib"
   ],
   "scripts": {
-    "lint": "eslint *.js",
-    "fix": "eslint *.js --fix",
-    "check": "tehanu test",
-    "cover": "c8 tehanu test",
-    "test": "eslint *.js && c8 tehanu test"
+    "prepare": "lessc  --source-map  --source-map-inline --source-map-include-source test/widget.less test/widget-inline.css && lessc --source-map=test/widget.css.map --source-map-include-source test/widget.less test/widget.css",
+    "lint": "eslint lib/*.js test/*.js",
+    "fix": "eslint lib/*.js test/*.js --fix",
+    "check": "tehanu test/*.js",
+    "cover": "c8 tehanu test/*.js",
+    "test": "eslint lib/*.js test/*.js && c8 tehanu test/*.js"
   },
   "c8": {
     "check-coverage": true,
@@ -73,6 +73,7 @@
     "@semantic-release/git": "^10.0.1",
     "c8": "^7.11.2",
     "eslint": "^8.14.0",
+    "less": "^4.1.2",
     "tehanu": "^0.2.2",
     "tehanu-repo-coco": "^0.0.2",
     "tehanu-teru": "^0.2.2"

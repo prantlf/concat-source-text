@@ -1,13 +1,17 @@
 interface SourceMap {
   inline?: boolean /*= true*/
   external?: boolean
+  separate?: boolean
+  outputFile?: string
   mapFile?: string
   sourcesContent?: boolean
-  multilineComment?: boolean
+  multilineComment?: boolean,
+  readSourceMaps?: boolean,
+  mapDir?: string
+  locateSourceMap?: (mapFile: string, source: string) => string | undefined
 }
 
 interface Options {
-  outputFile?: string
   separator?: string /*= ''*/
   sourceMap?: SourceMap | boolean
 }

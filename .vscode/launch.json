@@ -1,0 +1,26 @@
+{
+  // Pro informace o možných atributech použijte technologii IntelliSense.
+  // Umístěním ukazatele myši zobrazíte popisy existujících atributů.
+  // Další informace najdete tady: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "test/input-map",
+      "type": "pwa-node",
+      "request": "launch",
+      "program": "${workspaceFolder}/test/input-map.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "test/output-map",
+      "type": "pwa-node",
+      "request": "launch",
+      "program": "${workspaceFolder}/test/output-map.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}

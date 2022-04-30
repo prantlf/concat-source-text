@@ -1,16 +1,10 @@
 const test = require('tehanu')(__filename)
 const { strictEqual, deepStrictEqual } = require('assert')
-const exported = require('.')
-const { SourceTextConcatenator } = exported
+const { SourceTextConcatenator } = require('../lib')
 
 let concatenator
 
 test.beforeEach(() => concatenator = new SourceTextConcatenator)
-
-test('exports a named class', () => {
-  strictEqual(typeof exported, 'object')
-  strictEqual(typeof SourceTextConcatenator, 'function')
-})
 
 test('concatenates one source with no map', () => {
   concatenator.append('1\n', '1.txt')
@@ -67,8 +61,10 @@ test('appends line break with a separate map', () => {
 test('allows custom separator with an external map', () => {
   concatenator.append('1', '1.txt')
   concatenator.append('2', '2.txt')
-  const out = concatenator.join({ separator: '\n',
-    sourceMap: { external: true, mapFile: 'out.txt.map' } })
+  const out = concatenator.join({
+    separator: '\n',
+    sourceMap: { external: true, mapFile: 'out.txt.map' }
+  })
   strictEqual(typeof out, 'object')
   const { text, map } = out
   strictEqual(text, '1\n\n2\n//# sourceMappingURL=out.txt.map')
@@ -82,8 +78,9 @@ test('allows custom separator with an external map', () => {
 
 test('inserts a multiline comment pointing to an external map', () => {
   concatenator.append('1', '1.txt')
-  const out = concatenator.join(
-    { sourceMap: { external: true, mapFile: 'out.txt.map', multilineComment: true } })
+  const out = concatenator.join({
+    sourceMap: { external: true, mapFile: 'out.txt.map', multilineComment: true }
+  })
   strictEqual(typeof out, 'object')
   const { text, map } = out
   strictEqual(text, '1\n/*# sourceMappingURL=out.txt.map */')
@@ -98,8 +95,9 @@ test('inserts a multiline comment pointing to an external map', () => {
 test('allows target file name with sources content', () => {
   concatenator.append('1', '1.txt')
   concatenator.append('2', '2.txt')
-  const out = concatenator.join({ outputFile: 'out.txt',
-    sourceMap: { external: true, sourcesContent: true } })
+  const out = concatenator.join({
+    sourceMap: { external: true, outputFile: 'out.txt', sourcesContent: true }
+  })
   strictEqual(typeof out, 'object')
   const { text, map } = out
   strictEqual(text, '1\n2\n//# sourceMappingURL=out.txt.map')
