@@ -3,6 +3,7 @@
 [![Latest version](https://img.shields.io/npm/v/concat-source-text)
  ![Dependency status](https://img.shields.io/librariesio/release/npm/concat-source-text)
 ](https://www.npmjs.com/package/concat-source-text)
+[![Code coverage](https://codecov.io/gh/prantlf/concat-source-text/branch/master/graph/badge.svg?token=qLsarhf7g7)](https://codecov.io/gh/prantlf/concat-source-text)
 
 Concatenates text source files and generates a source map for the text output. Can be used to concatenate stylesheets and show the original source stylesheets in the debugger. Supports nested source maps and merges them to the final output.
 
