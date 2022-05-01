@@ -1,6 +1,6 @@
 {
   "name": "concat-source-text",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Concatenates text source files and generates a source map for the text output.",
   "author": {
     "name": "Ferdinand Prantl",
@@ -36,7 +36,8 @@
     "fix": "eslint lib/*.js test/*.js --fix",
     "check": "tehanu test/*.js",
     "cover": "c8 tehanu test/*.js",
-    "test": "eslint lib/*.js test/*.js && c8 tehanu test/*.js"
+    "test": "eslint lib/*.js test/*.js && c8 tehanu test/*.js",
+    "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "c8": {
     "check-coverage": true,
