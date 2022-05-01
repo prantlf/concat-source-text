@@ -16,9 +16,18 @@ interface Options {
   sourceMap?: SourceMap | boolean
 }
 
+interface Map {
+  version: 3
+  sources: string[]
+  names: []
+  file?: string
+  mappings: string
+  sourcesContent?: string[]
+}
+
 interface Output {
   text: string
-  map?: object
+  map?: Map
 }
 
 declare class SourceTextConcatenator {
