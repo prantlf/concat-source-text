@@ -106,7 +106,7 @@ base.css:
 body { padding: 1rem }
 ```
 
-widgets.css:
+widget.css:
 
 ```css
 .container { display: flex }
@@ -120,7 +120,7 @@ import { SourceTextConcatenator } from 'concat-source-text'
 
 const concatenator = new SourceTextConcatenator
 concatenator.append(await readFile('base.css', 'utf8'), 'base.css')
-concatenator.append(await readFile('widgets.css', 'utf8'), 'widgets.css')
+concatenator.append(await readFile('widget.css', 'utf8'), 'widget.css')
 const { text, map } = concatenator.join({
   separator: '\n',
   sourceMap: {
@@ -150,7 +150,7 @@ main.css.map:
 ```json
 {
   "version": 3,
-  "sources": ["base.css", "widgets.css"],
+  "sources": ["base.css", "widget.css"],
   "names": [],
   "mappings": "AAAA;AACA;;ACDA",
   "sourcesContent": ["body { padding: 1rem }\n", ".container { display: flex }"]
@@ -167,7 +167,7 @@ base.css:
 body { padding: 1rem }
 ```
 
-widgets.css:
+widget.css:
 
 ```less
 .widget {
@@ -179,7 +179,7 @@ widgets.css:
 /*# sourceMappingURL=widget.css.map */
 ```
 
-widgets.css.map:
+widget.css.map:
 
 ```json
 {
@@ -200,7 +200,7 @@ import { SourceTextConcatenator } from 'concat-source-text'
 
 const concatenator = new SourceTextConcatenator
 concatenator.append(await readFile('base.css', 'utf8'), 'base.css')
-concatenator.append(await readFile('widgets.css', 'utf8'), 'widgets.css')
+concatenator.append(await readFile('widget.css', 'utf8'), 'widget.css')
 const { text, map } = concatenator.join({
   separator: '\n',
   sourceMap: {
