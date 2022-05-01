@@ -32,11 +32,10 @@
   ],
   "scripts": {
     "prepare": "lessc  --source-map  --source-map-inline --source-map-include-source test/widget.less test/widget-inline.css && lessc --source-map=test/widget.css.map --source-map-include-source test/widget.less test/widget.css",
-    "lint": "eslint lib/*.js test/*.js",
-    "fix": "eslint lib/*.js test/*.js --fix",
+    "lint": "denolint",
     "check": "tehanu test/*.js",
     "cover": "c8 tehanu test/*.js",
-    "test": "eslint lib/*.js test/*.js && c8 tehanu test/*.js",
+    "test": "denolint && c8 tehanu test/*.js",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "c8": {
@@ -70,10 +69,10 @@
     "source-map": "~0.6.1"
   },
   "devDependencies": {
+    "@node-rs/deno-lint": "^1.13.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "c8": "^7.11.2",
-    "eslint": "^8.14.0",
     "less": "^4.1.2",
     "tehanu": "^0.2.2",
     "tehanu-repo-coco": "^0.0.2",
